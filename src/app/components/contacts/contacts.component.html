@@ -1,0 +1,43 @@
+<button class="btn btn-warning" (click)="addContact()">Add Contact</button>
+<br /><br />
+<form>
+  <div class="form-group">
+    <input maxlength=50 placeholder="Search name" name="search" [(ngModel)]="search">
+    <button class="btn btn-warning" (click)="searchAll()">Search</button>
+  </div>
+</form>
+<br /><br />
+<table >
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>phonenumber</th>
+      <th>homenumber</th>
+      <th>worknumber</th>
+      <th>birthdate</th>
+      <th>note</th>
+      <th colspan=2>Operation</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.phonenumber }}</td>
+    <td>{{ contact.homenumber }}</td>
+    <td>{{ contact.worknumber }}</td>
+    <td>{{ contact.birthdate }}</td>
+    <td>{{ contact.note }}</td>
+    <td>
+      <button class="btn btn-warning" (click)="editContact(contact.id)">
+        Edit
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteContact(contact.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+
+
+<router-outlet></router-outlet>
